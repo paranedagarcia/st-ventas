@@ -102,9 +102,20 @@ def _page_inicio() -> None:
 
     first, second = st.columns(2)
     with first:
-        _chart(data.assign(Tipo=clean_category(data["RAZON_COMPRA"])).groupby("Tipo").size().reset_index(name="Ventas").sort_values("Ventas", ascending=False), "Tipo", "Ventas", "Tipos de venta", horizontal=True)
+        datos = (
+            data.assign(Tipo=clean_category(data["RAZON_COMPRA"]))
+            .groupby("Tipo").size().reset_index(name="Ventas")
+            .sort_values("Ventas", ascending=False)
+        )
+        _chart(datos, "Tipo", "Ventas", "Tipos de venta", horizontal=True)
     with second:
-        _chart(data.assign(Proyecto=clean_category(data["Proyecto"])).groupby("Proyecto").size().reset_index(name="Departamentos").sort_values("Departamentos", ascending=False).head(12), "Proyecto", "Departamentos", "Departamentos por proyecto", horizontal=True)
+        datos = (
+            data.assign(Proyecto=clean_category(data["Proyecto"]))
+            .groupby("Proyecto").size().reset_index(name="Departamentos")
+            .sort_values("Departamentos", ascending=False)
+            .head(12)
+        )
+        _chart(datos, "Proyecto", "Departamentos", "Departamentos por proyecto", horizontal=True)
 
     comunas = data.assign(Comuna=clean_category(data["Comuna_proyecto"])).groupby("Comuna").size().reset_index(name="Departamentos").sort_values("Departamentos", ascending=False).head(12)
     _chart(comunas, "Comuna", "Departamentos", "Departamentos vendidos por comuna", horizontal=True)
