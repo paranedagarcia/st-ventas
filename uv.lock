@@ -302,6 +302,12 @@ wheels = [
 ]
 
 [[package]]
+name = "millify"
+version = "0.1.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/c9/60/f81b9440107ac22cd8fa36924e194bb258b01aaa5484b8693eba2b542300/millify-0.1.1.tar.gz", hash = "sha256:619defdc98b6d23f941b5ce4aaf4bf87a0e0f64cd0446ffa299be94486597f1a", size = 1219, upload-time = "2018-01-15T02:19:08.138Z" }
+
+[[package]]
 name = "narwhals"
 version = "2.28.0"
 source = { registry = "https://pypi.org/simple" }
@@ -662,6 +668,7 @@ name = "st-ventas"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "millify" },
     { name = "pandas" },
     { name = "plotly" },
     { name = "streamlit" },
@@ -669,6 +676,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "millify", specifier = ">=0.1.1" },
     { name = "pandas", specifier = ">=2.2" },
     { name = "plotly", specifier = ">=5.24" },
     { name = "streamlit", specifier = ">=1.40" },
