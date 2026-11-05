@@ -1,0 +1,21 @@
+[project]
+name = "st-ventas"
+version = "0.1.0"
+description = "Panel multipagina para analizar ventas inmobiliarias"
+readme = "README.md"
+authors = [
+    { name = "Patricio Araneda", email = "paranedagarcia@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "pandas>=2.2",
+    "plotly>=5.24",
+    "streamlit>=1.40",
+]
+
+[project.scripts]
+st-ventas = "st_ventas:main"
+
+[build-system]
+requires = ["uv_build>=0.13.1,<0.14.0"]
+build-backend = "uv_build"
